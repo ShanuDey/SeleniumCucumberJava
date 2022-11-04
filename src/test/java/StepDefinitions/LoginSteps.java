@@ -1,10 +1,22 @@
 package StepDefinitions;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class LoginSteps {
+	@Before
+	public void before() {
+		System.out.println("Inside before");
+	}
+	
+	@After
+	public void after() {
+		System.out.println("Inside after");
+	}
+	
 	@Given("I am on the login page")
 	public void i_am_on_the_login_page() {
 		System.out.println("Inside step - I am on the login page");

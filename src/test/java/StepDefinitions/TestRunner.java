@@ -6,8 +6,12 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features="src/test/resources/Features/login.feature",
-glue= {"StepDefinitions"}
-		)
+glue= {"StepDefinitions"},
+plugin= {"pretty", "html:target/HtmlReport.html",
+		"json:target/JsonReport.json",
+		"junit:target/JunitReport.xml"
+		}
+	)
 public class TestRunner {
 
 }

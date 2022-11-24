@@ -22,7 +22,7 @@ public class LoginSteps {
 	@Before
 	public void before() {
 		// String driverPath = System.getProperty("user.dir");
-		System.setProperty("webdriver.chrome.driver", "/usr/local/Caskroom/chromedriver/107.0.5304.62");
+		System.setProperty("webdriver.chrome.driver", "/usr/local/Caskroom/chromedriver/107.0.5304.62/chromedriver");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		driver = new ChromeDriver(options);

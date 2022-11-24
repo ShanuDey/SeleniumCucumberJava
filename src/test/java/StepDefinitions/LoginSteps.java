@@ -21,8 +21,8 @@ public class LoginSteps {
 
 	@Before
 	public void before() {
-		String driverPath = System.getProperty("user.dir");
-		System.setProperty("webdriver.chrome.driver", driverPath + "/src/test/resources/drivers/chromedriver");
+		// String driverPath = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", "/usr/local/Caskroom/chromedriver/107.0.5304.62");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		driver = new ChromeDriver(options);

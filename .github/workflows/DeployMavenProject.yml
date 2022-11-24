@@ -46,5 +46,6 @@ jobs:
         testPaths: "target/JsonReport.json"
         testPlanKey: "FIR-6"
         projectKey: "FIR"
-        # testExecutionJson: "target/JsonReport.json"
-        # testJson: "target/JsonReport.json"
+        failOnImportError: true
+        testExecutionJson: "target/JsonReport.json"
+        testJson: "target/JsonReport.json"

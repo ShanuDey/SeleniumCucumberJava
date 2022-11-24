@@ -24,7 +24,7 @@ public class LoginSteps {
 		ChromeOptions options = new ChromeOptions();
 		String ciStatus = System.getenv("CI");
 		if("true".equals(ciStatus)){
-			System.setProperty("webdriver.chrome.driver", System.getenv("CHROMEWEBDRIVER"));
+			System.setProperty("webdriver.chrome.driver", System.getenv("CHROMEWEBDRIVER")+"/chromedriver");
 			options.addArguments("--headless");
 		}else{
 			String driverPath = System.getProperty("user.dir");

@@ -42,9 +42,9 @@ jobs:
       with:
         username: ${{ secrets.XRAY_CLIENT_ID }}
         password: ${{ secrets.XRAY_CLIENT_SECRET }}
-        testFormat: "junit"
-        testPaths: "**/target/surefire-reports/*.xml"
+        testFormat: "cucumber"
+        testPaths: "**/target/*.json"
         testPlanKey: "FIR-6"
         projectKey: "FIR"
-        testExecutionJson: "target/JsonReport.json"
-        testJson: "target/JsonReport.json"
+        # testExecutionJson: "target/JsonReport.json"
+        # testJson: "target/JsonReport.json"

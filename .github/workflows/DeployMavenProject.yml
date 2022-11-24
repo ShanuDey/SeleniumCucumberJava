@@ -37,6 +37,9 @@ jobs:
         name: target
         path: target
 
+    - name: "check json report content"
+      run: cat target/JsonReport.json
+
     - name: "Import results to Xray"
       uses: mikepenz/xray-action@v2
       with:

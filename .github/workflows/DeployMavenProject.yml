@@ -45,9 +45,9 @@ jobs:
       with:
         username: ${{ secrets.XRAY_CLIENT_ID }}
         password: ${{ secrets.XRAY_CLIENT_SECRET }}
-        testFormat: "cucumber"
-        testPaths: "target/JsonReport.json"
-        # testPlanKey: "FIR-6"
+        testFormat: "junit"
+        testPaths: "**/target/surefile-reports/*.xml"
+        testPlanKey: "FIR-6"
         projectKey: "FIR"
         failOnImportError: true
         testExecutionJson: "target/JsonReport.json"

@@ -49,6 +49,6 @@ jobs:
         testPaths: "**/target/surefire-reports/*.xml"
         testPlanKey: "FIR-6"
         projectKey: "FIR"
-        failOnImportError: true
-        testExecutionJson: "target/JsonReport.json"
-        testJson: "target/JsonReport.json"
+        # failOnImportError: true
+        # testExecutionJson: "target/JsonReport.json"
+        # testJson: "target/JsonReport.json"

@@ -39,5 +39,5 @@ jobs:
         password: ${{ secrets.XRAY_CLIENT_SECRET }}
         testFormat: "junit"
         testPaths: "**/target/surefire-reports/*.xml"
-        testExecKey: "FIR-4"
+        testPlanKey: "FIR-6"
         projectKey: "FIR"

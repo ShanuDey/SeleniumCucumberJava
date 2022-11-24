@@ -11,10 +11,6 @@ name: Java CI with Maven
 on:
   repository_dispatch:
     types: [on-demand-test]
-  # push:
-  #   branches: [ "xray" ]
-  # pull_request:
-  #   branches: [ "xray" ]
 
 jobs:
   build:
@@ -43,5 +39,5 @@ jobs:
         password: ${{ secrets.XRAY_CLIENT_SECRET }}
         testFormat: "junit"
         testPaths: "**/target/surefire-reports/*.xml"
-        # testExecKey: "FIR-6"
+        testExecKey: "FIR-4"
         projectKey: "FIR"

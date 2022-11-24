@@ -10,11 +10,11 @@ name: Java CI with Maven
 
 on:
   repository_dispatch:
-    types: "xrayTestExecution"
-  push:
-    branches: [ "xray" ]
-  pull_request:
-    branches: [ "xray" ]
+    types: "xray-test-execution"
+  # push:
+  #   branches: [ "xray" ]
+  # pull_request:
+  #   branches: [ "xray" ]
 
 jobs:
   build:

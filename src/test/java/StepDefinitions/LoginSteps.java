@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,9 +22,10 @@ public class LoginSteps {
 	@Before
 	public void before() {
 		String driverPath = System.getProperty("user.dir");
-		System.setProperty("webdriver.chrome.driver", driverPath + "/src/test/resources/drivers/chromedriver.exe");
-
-		driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", driverPath + "/src/test/resources/drivers/chromedriver");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		driver.manage().window().maximize();

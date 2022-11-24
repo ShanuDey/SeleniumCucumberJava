@@ -21,10 +21,15 @@ public class LoginSteps {
 
 	@Before
 	public void before() {
-		// String driverPath = System.getProperty("user.dir");
-		System.setProperty("webdriver.chrome.driver", "/usr/local/Caskroom/chromedriver/107.0.5304.62/chromedriver");
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
+		String ciStatus = System.getenv("CI");
+		if("true".equals(ciStatus)){
+			System.setProperty("webdriver.chrome.driver", System.getenv("CHROMEWEBDRIVER"));
+			options.addArguments("--headless");
+		}else{
+			String driverPath = System.getProperty("user.dir");
+			System.setProperty("webdriver.chrome.driver", driverPath + "/src/test/resources/drivers/chromedriver");	
+		}
 		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));

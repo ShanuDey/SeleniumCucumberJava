@@ -47,7 +47,7 @@ jobs:
         password: ${{ secrets.XRAY_CLIENT_SECRET }}
         testFormat: "cucumber"
         testPaths: "target/JsonReport.json"
-        testPlanKey: "FIR-61"
-        # testExecKey: "FIR-46"
+        # testPlanKey: "FIR-61"
+        testExecKey: "FIR-64"
         projectKey: "FIR"
         # testExecutionJson: "target/JsonReport.json"

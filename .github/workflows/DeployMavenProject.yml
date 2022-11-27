@@ -1,12 +1,4 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Java CI with Maven
+name: Java CI with Maven for AIO Tests on demand
 
 on:
   repository_dispatch:
@@ -28,23 +20,15 @@ jobs:
     - name: Build with Maven
       run: mvn clean & mvn verify
 
-    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-    - name: Update dependency graph
-      uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
-
     - uses: actions/upload-artifact@v3
       with:
         name: target
         path: target
 
-    - name: "check json report content"
-      run: cat target/JsonReport.json
-
     - name: Jira AIO Tests with Github Action
-      uses: ShanuDey/Jira-AIO-Action@v1
+      uses: ShanuDey/Jira-AIO-Action@v2
       with:
         token: ${{ secrets.AIO_API_TOKEN }}
         filePath: "target/JsonReport.json"
-        testPlanKey: "FIR-65"
         jiraProjectKey: "FIR"
         aioCycleKey: "FIR-CY-1"

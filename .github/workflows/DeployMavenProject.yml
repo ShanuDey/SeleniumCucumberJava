@@ -10,7 +10,7 @@ name: Java CI with Maven
 
 on:
   repository_dispatch:
-    types: [on-demand-test]
+    types: [aio-tests]
 
 jobs:
   build:
@@ -40,14 +40,11 @@ jobs:
     - name: "check json report content"
       run: cat target/JsonReport.json
 
-    - name: "Import results to Xray"
-      uses: mikepenz/xray-action@v2
+    - name: Jira AIO Tests with Github Action
+      uses: ShanuDey/Jira-AIO-Action@v1
       with:
-        username: ${{ secrets.XRAY_CLIENT_ID }}
-        password: ${{ secrets.XRAY_CLIENT_SECRET }}
-        testFormat: "cucumber"
-        testPaths: "target/JsonReport.json"
+        token: ${{ secrets.AIO_API_TOKEN }}
+        filePath: "target/JsonReport.json"
         testPlanKey: "FIR-65"
-        # testExecKey: "FIR-64"
-        projectKey: "FIR"
-        # testExecutionJson: "target/JsonReport.json"
+        jiraProjectKey: "FIR"
+        aioCycleKey: "FIR-CY-1"

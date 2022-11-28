@@ -6,29 +6,32 @@ on:
 
 jobs:
   build:
-
-    runs-on: 	macos-latest
+    runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up JDK 11
-      uses: actions/setup-java@v3
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-        cache: maven
-    - name: Build with Maven
-      run: mvn clean & mvn verify
+      - uses: actions/checkout@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: "11"
+          distribution: "temurin"
+          cache: maven
+      - name: Build with Maven
+        run: mvn clean & mvn verify
 
-    - uses: actions/upload-artifact@v3
-      with:
-        name: target
-        path: target
+      - uses: actions/upload-artifact@v3
+        with:
+          name: target
+          path: target
 
-    - name: Jira AIO Tests with Github Action
-      uses: ShanuDey/Jira-AIO-Action@v2
-      with:
-        token: ${{ secrets.AIO_API_TOKEN }}
-        filePath: "target/JsonReport.json"
-        jiraProjectKey: "FIR"
-        aioCycleKey: "FIR-CY-1"
+      - name: Jira AIO Tests with Github Action
+        uses: ShanuDey/Jira-AIO-Action@v2
+        with:
+          token: ${{ secrets.AIO_API_TOKEN }}
+          filePath: "target/JsonReport.json"
+          jiraProjectKey: "FIR"
+          aioCycleKey: "FIR-CY-1"
+          createNewRun: true
+          addCaseToCycle: false
+          createCase: false
+          bddForceUpdateCase: true

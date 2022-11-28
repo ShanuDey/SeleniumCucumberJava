@@ -29,8 +29,8 @@ jobs:
         with:
           token: ${{ secrets.AIO_API_TOKEN }}
           filePath: "target/JsonReport.json"
-          jiraProjectKey: "FIR"
-          aioCycleKey: "FIR-CY-1"
+          jiraProjectKey: ${{ github.event.client_payload.jiraProjectKey }}
+          aioCycleKey: ${{ github.event.client_payload.aioCycleKey }}
           createNewRun: true
           addCaseToCycle: false
           createCase: false
